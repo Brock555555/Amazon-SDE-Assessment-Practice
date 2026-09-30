@@ -105,6 +105,16 @@ int main(){
     change_val(h);
     std::cout << h << std::endl;
 
+    int t[10];//an array of 10 integers, statically allocated on stack
+    t[0] = 1;//is equivalent to *t
+    int* l = new int[10];//a dynamically allocated array of integers on the heap
+    delete[] l;
+    //t + 1 would be equivalent to t[1]
 
+    const int unchangeable = 1;//const variables cant be changed, are read only
+    const int&k = h; //k is a constant reference to h, it is the same variable with the same address, but its value cannot change
+    //h can be changed, but cant be changed via k, 
+    //a pointer can also be assigned to be const so what it points to cant be changed, it also can have a const variable such that
+    //what it points to cant be changed by dereferencing that pointer.
     return 0;
 }
