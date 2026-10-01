@@ -31,6 +31,12 @@ void change_val(int &num){
     std::cout << "num changed to: " << num << " In function" << std::endl;
 }
 
+struct student{//a mini class of things to store
+    std::string year;
+    unsigned int age;
+    std::string favorite_snack;
+};
+
 
 int main(){
     std::cout << "Hello!"<< std::endl;
@@ -116,5 +122,14 @@ int main(){
     //h can be changed, but cant be changed via k, 
     //a pointer can also be assigned to be const so what it points to cant be changed, it also can have a const variable such that
     //what it points to cant be changed by dereferencing that pointer.
+    student Randal;
+    Randal.year = "Freshy";
+    Randal.age = 18;
+    Randal.favorite_snack = "Chips";
+    student Clair{"Sophy", 19, "Candy"};//another way to populate the fields of a struct
+    student *student_pointer = new student;
+    student_pointer->year = "Juny";
+    
+
     return 0;
 }
