@@ -1,10 +1,11 @@
 #include <iostream>
 #include <stdexcept>
 
+template <typename T>
 class LinkedList{
     private:
         struct Node{
-            int value;
+            T value;
             Node* next;
             Node* prev;
         };
@@ -27,7 +28,7 @@ class LinkedList{
             }
         }
 
-        void add_Node(int value){
+        void add_Node(T value){
             if (head == nullptr){
                 head = new Node{value, nullptr, nullptr};
                 tail = head;
@@ -55,11 +56,11 @@ class LinkedList{
             }
         }
 
-        int return_head(){
+        T return_head(){
             return head->value;
         }
 
-        int return_tail(){
+        T return_tail(){
             return tail->value;
         }
 
@@ -73,7 +74,7 @@ class LinkedList{
             return count;
         }
 
-        int pop(){//pop the head and return its value
+        T pop(){//pop the head and return its value
             if(head){
                 Node* old_head = head;
                 int value = old_head->value;
@@ -89,7 +90,7 @@ class LinkedList{
             }
         }
 
-        int pop_tail(){//pop tail and return its value
+        T pop_tail(){//pop tail and return its value
             if(tail){
                 Node* old_tail = tail;
                 int value = tail->value;
@@ -111,7 +112,7 @@ class LinkedList{
 };
 
 int main(){
-    LinkedList Numbers;
+    LinkedList<int> Numbers;//use to be just LinkedList Numbers until I added templates
     Numbers.add_Node(1);
     Numbers.add_Node(2);
     Numbers.print_nodes();
@@ -120,12 +121,12 @@ int main(){
     Numbers.print_nodes();
     std::cout << "----------------" << std::endl;
     Numbers.~LinkedList();
-    LinkedList* Numbers2 = new LinkedList;
+    LinkedList<int>* Numbers2 = new LinkedList<int>;
     Numbers2->add_Node(3);
     Numbers2->add_Node(4);
     Numbers2->print_nodes();
     delete Numbers2;//should delete the linked list itself and calls the deconstructor
-    LinkedList Numbers3;
+    LinkedList<int> Numbers3;
     try{
         Numbers3.pop();
     }
