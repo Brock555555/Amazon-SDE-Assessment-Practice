@@ -129,7 +129,7 @@ int main(){
     student Clair{"Sophy", 19, "Candy"};//another way to populate the fields of a struct
     student *student_pointer = new student;
     student_pointer->year = "Juny";
-    
+    //std::function<int(int)> f;//declaring a function object, using 
 
     return 0;
 }
