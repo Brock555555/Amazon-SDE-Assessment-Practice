@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <memory>
 
 int main(){
     int* x; // x is a pointer to an integer, its value is an address of where it points to
@@ -25,6 +26,24 @@ int main(){
     (*f)++;
     std::cout << *f << std::endl;
     delete f;
+
+    int value = 10;
+    void* void_pointer;//cant be dereferenced unless by type casting since they can hold any value
+    void_pointer = &value;
+    std::cout << *(static_cast<int*>(void_pointer)) << std::endl;
+
+    //types of smart pointers
+    std::unique_ptr<int> unique{new int};//this is a unique pointer, it holds unique ownership of the object it points too
+    //It will also guarantees that its death will trigger the automatic deletion of the object it points to
+    *unique = 1;//this int value will be deleted if the pointer were to fall out of scope
+    //Since a unique pointer has automatic deletion it isnt allowed to be copied, since you could try to copy something deleted
+    std::shared_ptr<int> shared{new int};//This is a shared pointer, ownership is shared 
+    //as long as any one of those pointers still points to the object, the object will continue to exist, 
+    //but as soon as the last one is destroyed, the object will be destroyed automatically
+    std::shared_ptr<int> shared2 = shared;//as you can see shared pointers can be copied, since its destroyed when the last one dies
+    *shared = 4;
+    //there also one called weak ptr but its mainly used to observe a shared pointer and detecting cyclic references
+
     return 0;
 
 }
