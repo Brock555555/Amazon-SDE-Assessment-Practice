@@ -1,3 +1,5 @@
 Array_Vector.exe
 *.obj
 *.exe
+*.ilk
+*.pdb

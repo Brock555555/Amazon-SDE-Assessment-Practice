@@ -1,5 +1,6 @@
 #include <iostream> //Preprocessor directives
 #include <string>
+#include <tuple>
 
 
 int Number(){
@@ -130,6 +131,11 @@ int main(){
     student *student_pointer = new student;
     student_pointer->year = "Juny";
     //std::function<int(int)> f;//declaring a function object, using 
+
+    bool isfun = true;
+    std::tuple<int, char, std::string> tuple1(10, 'A', "Hello");
+    std::cout << std::get<0>(tuple1) << std::endl;
+
 
     return 0;
 }
