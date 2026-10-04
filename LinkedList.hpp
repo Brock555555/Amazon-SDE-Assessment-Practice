@@ -28,7 +28,7 @@ class LinkedList{
             }
         }
 
-        void add_Node(T value){
+        void add_Node(T value){//this adds to the end
             if (head == nullptr){
                 head = new Node{value, nullptr, nullptr};
                 tail = head;
@@ -37,6 +37,18 @@ class LinkedList{
                 Node* temp_node = new Node{value, nullptr, tail};
                 tail->next = temp_node;
                 tail = temp_node;
+            }
+        }
+
+        void push(T value){//adds to the head
+            if (head == nullptr){
+                head = new Node{value, nullptr, nullptr};
+                tail = head;
+            }
+            else{
+                Node* temp_node = new Node{value, head, nullptr};//the next node is the old head
+                head->prev = temp_node;//link the oldhead to our new head
+                head = temp_node;//head is now temp
             }
         }
 
