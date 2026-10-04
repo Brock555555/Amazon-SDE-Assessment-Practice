@@ -1,9 +1,6 @@
-#include <iostream>
-#include <stdexcept>
+#ifndef LinkedList_HPP
+#define LinkedList_HPP
 
-//Moved into LinkedList.hpp for outside use
-#include "LinkedList.hpp"
-/*
 template <typename T>
 class LinkedList{
     private:
@@ -111,40 +108,6 @@ class LinkedList{
                 throw std::out_of_range("Tried to delete the tail node of an empty list");
             }
         }
-
 };
-*/
 
-int main(){
-    LinkedList<int> Numbers;//use to be just LinkedList Numbers until I added templates
-    Numbers.add_Node(1);
-    Numbers.add_Node(2);
-    Numbers.print_nodes();
-    Numbers.print_nodes_reverse();
-    Numbers.pop();
-    Numbers.print_nodes();
-    std::cout << "----------------" << std::endl;
-    Numbers.~LinkedList();
-    LinkedList<int>* Numbers2 = new LinkedList<int>;
-    Numbers2->add_Node(3);
-    Numbers2->add_Node(4);
-    Numbers2->print_nodes();
-    delete Numbers2;//should delete the linked list itself and calls the deconstructor
-    LinkedList<int> Numbers3;
-    try{
-        Numbers3.pop();
-    }
-    catch(const std::out_of_range& e){
-        std::cerr << e.what() << std::endl;
-    }
-    try{
-        Numbers3.pop_tail();
-    }
-    catch(const std::out_of_range& e){
-        std::cerr << e.what() << std::endl;
-    }
-
-
-
-    return 0;
-}
+#endif
