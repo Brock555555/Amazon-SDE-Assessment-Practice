@@ -89,7 +89,7 @@ class LinkedList{
         T pop(){//pop the head and return its value
             if(head){
                 Node* old_head = head;
-                int value = old_head->value;
+                T value = old_head->value;
                 head = head->next;//should be another node or nullptr if only one
                 if(head == nullptr){//make sure the tail doesnt point to junk
                     tail = nullptr;
@@ -105,7 +105,7 @@ class LinkedList{
         T pop_tail(){//pop tail and return its value
             if(tail){
                 Node* old_tail = tail;
-                int value = tail->value;
+                T value = tail->value;
                 tail = tail->prev;
                 if (tail == nullptr){
                     head = nullptr;
